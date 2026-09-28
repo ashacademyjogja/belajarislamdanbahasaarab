@@ -3,58 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Embedded Content</title>
+  <meta name="theme-color" content="#2563eb">
+
+  <title>Asah Ilmu</title>
+
   <style>
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-border-box;
+      box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       height: 100%;
-      /* Menggunakan svh/dvh agar pas di layar HP modern tanpa terpotong address bar */
-      min-height: 100dvh; 
-      overflow-y: auto; /* Memastikan halaman utama bisa di-scroll jika konten panjang */
-      -webkit-overflow-scrolling: touch; /* Scroll lancar di iOS */
+      min-height: 100dvh;
+      overflow: hidden;
+      background: #ffffff;
     }
 
     .iframe-container {
       width: 100%;
+      height: 100dvh;
       min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
+      overflow: hidden;
     }
 
     iframe {
+      display: block;
       width: 100%;
-      height: 100dvh; /* Mengikuti tinggi viewport dinamis HP */
-      border: none;
-      flex-grow: 1;
+      height: 100dvh;
+      min-height: 100dvh;
+      border: 0;
+      margin: 0;
+      padding: 0;
     }
   </style>
 </head>
+
 <body>
 
   <div class="iframe-container">
-    <iframe 
+    <iframe
       src="https://script.google.com/macros/s/AKfycbwbaiOI4m2gkwhdov4viPkg0Yky-dRV9BxicedD6DLxZeQ8JcWG1T1m4HLcOUnzxgc/exec"
-      allowfullscreen="true">
+      title="Asah Ilmu"
+      allowfullscreen>
     </iframe>
   </div>
-
-  <script>
-    // Note: Kebanyakan browser HP memblokir otomatis requestFullscreen() yang berjalan di window.onload tanpa interaksi pengguna.
-    window.onload = function() {
-      const iframe = document.querySelector('iframe');
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen().catch((err) => {
-          console.warn(`Fullscreen otomatis diblokir browser (memerlukan klik pengguna): ${err.message}`);
-        });
-      }
-    };
-  </script>
 
 </body>
 </html>
